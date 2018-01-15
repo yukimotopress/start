@@ -1,5 +1,5 @@
 ---
-title: How I Start - Let's Build a Ruby Gem Together!
+title: Let's Build a Ruby Gem Together!
 ---
 
 
