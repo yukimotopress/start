@@ -468,7 +468,7 @@ It doesn't know what our constant is. Perfect.
 
 ## Implement the code
 
-Let's actually define our constant. Add `lib/how_i_start.rb`:
+Let's actually define our constant. Add to `lib/how_i_start.rb`:
 
 ```ruby
 require "how_i_start/version"
