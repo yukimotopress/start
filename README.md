@@ -12,7 +12,7 @@ by [Steve Klabnik](https://github.com/steveklabnik)
 
 
 - [Let's build a gem together!](index.md)
-- [Appendix: Sources](sources.md)
+- [Appendix - Sources](sources.md)
 
 
 
