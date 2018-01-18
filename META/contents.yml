@@ -1,7 +1,7 @@
 ######################
 #  Table of Contents
 
-- title: Let's Build a Ruby Gem Together!
+- title: Let's Build a Gem Together!
   path:  index.md
   sections:
   - title: Intro
@@ -9,15 +9,6 @@
   - title: Install git
   - title: Install Ruby
   - title: Generate the skeleton
-    sections:
-    - title: Gemfile
-    - title: Rakefile
-    - title: LICENSE.txt
-    - title: README.md
-    - title: .gitignore
-    - title: how_i_start.gemspec
-    - title: lib/how_i_start.rb
-    - title: lib/how_i_start/version.rb
   - title: Write some tests
   - title: Implement the code
   - title: Write some docs
@@ -25,3 +16,18 @@
   - title: Push to RubyGems
   - title: Tweet about it
   - title: Conclusion
+
+- title: Appendix - Sources
+  path:  sources.md
+  sections:
+  - title: Directory Structure
+  - title: README.md
+  - title: LICENSE.txt
+  - title: Gemfile
+  - title: how_i_start.gemspec
+  - title: Rakefile
+  - title: bin/how_i_start
+  - title: lib/how_i_start.rb
+  - title: lib/how_i_start/version.rb
+  - title: test/url_test.rb
+ 
