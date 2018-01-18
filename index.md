@@ -419,7 +419,7 @@ $ echo $?
 $
 ```
 
-Cool. We don't have any tests, so we don't have any output. Let's make a test! Add `test/url_test.rb`:
+Cool. We don't have any tests, so we don't have any output. Let's make a test! Add to `test/url_test.rb`:
 
 ```ruby
 require "minitest/autorun"
