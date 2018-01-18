@@ -45,9 +45,7 @@ Install it yourself as:
 
 Just run the executable:
 
-```
-$ how_i_start
-```
+    $ how_i_start
 
 And it will point you at the article.
 
