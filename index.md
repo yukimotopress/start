@@ -242,8 +242,6 @@ See? Told you we needed `git`. Here's what these files do:
 The `Gemfile` is the main file that Bundler uses to track versions of all the
 dependencies our gem needs. It does this through an interesting mechanism:
 
-Source - `Gemfile`:
-
 ``` ruby
 source 'https://rubygems.org'
 
@@ -304,8 +302,6 @@ decent, but I'm going to edit them, and **then** show you the output.
 
 Okay, I'm done. Here it is. Substitute your own details, unless you're me.
 
-Source - `how_i_start.gemspec`:
-
 ```ruby
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
@@ -365,8 +361,6 @@ you say `require "how_i_start"` in a Ruby program. Very important.
 
 This file contains just a few lines:
 
-Source - `lib/how_i_start/version.rb`:
-
 ```ruby
 module HowIStart
   VERSION = "0.0.1"
@@ -398,8 +392,6 @@ $ touch test/url_test.rb
 This is the `minitest` convention. Test files are placed in `test` folder, ending with `_test.rb`.
 We'll also need to add a few lines to the `Rakefile`:
 
-Source - `Rakefile`:
-
 ``` ruby
 require "bundler/gem_tasks"
 
@@ -427,9 +419,7 @@ $ echo $?
 $
 ```
 
-Cool. We don't have any tests, so we don't have any output. Let's make a test!
-
-Source - `test/url_test.rb`:
+Cool. We don't have any tests, so we don't have any output. Let's make a test! Add `test/url_test.rb`:
 
 ```ruby
 require "minitest/autorun"
@@ -478,10 +468,7 @@ It doesn't know what our constant is. Perfect.
 
 ## Implement the code
 
-Let's actually define our constant:
-
-
-Source - `lib/how_i_start.rb`:
+Let's actually define our constant. Add `lib/how_i_start.rb`:
 
 ```ruby
 require "how_i_start/version"
@@ -519,9 +506,7 @@ an executable. Executables are stored in `bin`:
 $ mkdir bin
 ```
 
-Put this in it:
-
-Source - `bin/how_i_start`:
+Put this in `bin/how_i_start`:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -542,9 +527,7 @@ binary is just a thin shim to shove the command-line options to the Real Code.
 
 Use Rdoc. If it doesn't work, use [YARD](http://yardoc.org/). I include this
 comment here because docs are really, really important. We don't really have
-much to document, though. We'll just add some comments:
-
-Source - `lib/how_i_start.rb`:
+much to document, though. We'll just add some comments to `lib/how_i_start.rb`:
 
 ```ruby
 require "how_i_start/version"
@@ -557,7 +540,7 @@ module HowIStart
 end
 ```
 
-Source - `lib/how_i_start/version.rb`:
+And to `lib/how_i_start/version.rb`:
 
 ```ruby
 module HowIStart
@@ -682,9 +665,8 @@ http://howistart.org/posts/ruby/1
 ```
 
 Great! It successfully built the package, and our 'binary' works. Since this is
-a feature-complete version of the gem, we should bump the version to 1.0.
-
-Source - `lib/how_i_start/version.rb`:
+a feature-complete version of the gem, we should bump the version to 1.0 in
+`lib/how_i_start/version.rb`:
 
 ``` ruby
 module HowIStart
@@ -723,7 +705,7 @@ So do this:
 
 ![](i/how_i_start_tweet.png)
 
--- Brooklyn.rs (@steveklabnik) [June 19, 2014](https://twitter.com/steveklabnik/statuses/479671271832444928)
+-- Brooklyn.rs (@steveklabnik), [June 19, 2014](https://twitter.com/steveklabnik/statuses/479671271832444928)
 
 
 It's worth following a bunch of Ruby people on Twitter. Figure out who makes
