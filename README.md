@@ -11,8 +11,8 @@ by [Steve Klabnik](https://github.com/steveklabnik)
 >  (using the [Manuscripts format](http://manuscripts.github.io)).
 
 
-- [Let's build a gem together!](index.md)
-- [Appendix - Sources](sources.md)
+- [Let's Build a Gem Together!](index.md)
+- [Appendix - How I Start Sources](sources.md)
 
 
 
