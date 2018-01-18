@@ -1,5 +1,5 @@
 ---
-title: Let's Build a Ruby Gem Together!
+title: Let's Build a Gem Together!
 ---
 
 
@@ -242,8 +242,9 @@ See? Told you we needed `git`. Here's what these files do:
 The `Gemfile` is the main file that Bundler uses to track versions of all the
 dependencies our gem needs. It does this through an interesting mechanism:
 
-```
-$ cat Gemfile
+Source - `Gemfile`:
+
+``` ruby
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in how_i_start.gemspec
@@ -261,7 +262,7 @@ don't need to edit this either, as it already contains the stuff needed to
 do a bunch of cool things:
 
 ```bash
-$ bundle exec rake -T
+$ rake -T
 rake build    # Build how_i_start-0.0.1.gem into the pkg directory
 rake install  # Build and install how_i_start-0.0.1.gem into system gems
 rake release  # Create tag v0.0.1 and build and push how_i_start-0.0.1.gem to Ru...
@@ -303,8 +304,9 @@ decent, but I'm going to edit them, and **then** show you the output.
 
 Okay, I'm done. Here it is. Substitute your own details, unless you're me.
 
+Source - `how_i_start.gemspec`:
+
 ```ruby
-$ cat how_i_start.gemspec
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -363,8 +365,9 @@ you say `require "how_i_start"` in a Ruby program. Very important.
 
 This file contains just a few lines:
 
+Source - `lib/how_i_start/version.rb`:
+
 ```ruby
-$ cat lib/how_i_start/version.rb
 module HowIStart
   VERSION = "0.0.1"
 end
@@ -395,8 +398,9 @@ $ touch test/url_test.rb
 This is the `minitest` convention. Test files are placed in `test` folder, ending with `_test.rb`.
 We'll also need to add a few lines to the `Rakefile`:
 
-```ruby
-$ cat Rakefile
+Source - `Rakefile`:
+
+``` ruby
 require "bundler/gem_tasks"
 
 require "rake/testtask"
@@ -417,7 +421,7 @@ tests.
 Check to see if it works:
 
 ```bash
-$ bundle exec rake
+$ rake
 $ echo $?
 0
 $
@@ -425,8 +429,9 @@ $
 
 Cool. We don't have any tests, so we don't have any output. Let's make a test!
 
+Source - `test/url_test.rb`:
+
 ```ruby
-$ cat test/url_test.rb
 require "minitest/autorun"
 
 require "how_i_start"
@@ -447,7 +452,7 @@ The most important part of TDD is to run your tests and watch them fail.
 Here we go!
 
 ```bash
-$ bundle exec rake
+$ rake
 Run options: --seed 28249
 
 # Running:
@@ -475,8 +480,10 @@ It doesn't know what our constant is. Perfect.
 
 Let's actually define our constant:
 
+
+Source - `lib/how_i_start.rb`:
+
 ```ruby
-$ cat lib/how_i_start.rb
 require "how_i_start/version"
 
 module HowIStart
@@ -491,7 +498,7 @@ syntax right, if you ask a random Rubyist.
 Now we can run our test again:
 
 ```bash
-$ bundle exec rake
+$ rake
 Run options: --seed 43182
 
 # Running:
@@ -514,8 +521,9 @@ $ mkdir bin
 
 Put this in it:
 
+Source - `bin/how_i_start`:
+
 ```ruby
-$ cat bin/how_i_start
 #!/usr/bin/env ruby
 
 require 'how_i_start'
@@ -536,8 +544,9 @@ Use Rdoc. If it doesn't work, use [YARD](http://yardoc.org/). I include this
 comment here because docs are really, really important. We don't really have
 much to document, though. We'll just add some comments:
 
+Source - `lib/how_i_start.rb`:
+
 ```ruby
-$ cat lib/how_i_start.rb
 require "how_i_start/version"
 
 # All code in the gem is namespaced under this module.
@@ -546,7 +555,11 @@ module HowIStart
   # The URL of the article about how I start.
   Url = "http://howistart.org/posts/ruby/1"
 end
-$ cat lib/how_i_start/version.rb
+```
+
+Source - `lib/how_i_start/version.rb`:
+
+```ruby
 module HowIStart
 
   # The current version of HowIStart.
@@ -637,9 +650,7 @@ index 9c664a3..731d6f7 100644
 -TODO: Write usage instructions here
 +Just run the executable:
 +
-+```
-+$ how_i_start
-+```
++    $ how_i_start
 +
 +And it will point you at the article.
 
@@ -663,7 +674,7 @@ Let's release this sucker!
 First thing to do is to make sure that packaging it all up works. Let's try:
 
 ```bash
-$ bundle exec rake install
+$ rake install
 how_i_start 0.0.1 built to pkg/how_i_start-0.0.1.gem.
 how_i_start (0.0.1) installed.
 steve@computer:~/src/how_i_start$ how_i_start
@@ -673,18 +684,22 @@ http://howistart.org/posts/ruby/1
 Great! It successfully built the package, and our 'binary' works. Since this is
 a feature-complete version of the gem, we should bump the version to 1.0.
 
-```bash
-$ cat lib/how_i_start/version.rb
+Source - `lib/how_i_start/version.rb`:
+
+``` ruby
 module HowIStart
 
   # The current version of HowIStart.
   VERSION = "1.0.0"
 end
+```
+
+```bash
 $ git add lib/how_i_start/version.rb
 $ git commit -m "Bump version for 1.0 release"
 [master 499c1c0] Bump version for 1.0 release
  1 file changed, 1 insertion(+), 1 deletion(-)
-$ bundle exec rake release
+$ rake release
 how_i_start 1.0.0 built to pkg/how_i_start-1.0.0.gem.
 Tagged v1.0.0.
 Pushed git commits and tags.
@@ -706,7 +721,10 @@ way of the Ruby world.
 
 So do this:
 
-<blockquote class="twitter-tweet" lang="en"><p>I&#39;ve just released &quot;How I Start&quot; 1.0! &#10;&#10;$ gem install how_i_start&#10;&#10;<a href="https://t.co/R5m6ODxOZB">https://t.co/R5m6ODxOZB</a></p>&mdash; Brooklyn.rs (@steveklabnik) <a href="https://twitter.com/steveklabnik/statuses/479671271832444928">June 19, 2014</a></blockquote>
+![](i/how_i_start_tweet.png)
+
+-- Brooklyn.rs (@steveklabnik) [June 19, 2014](https://twitter.com/steveklabnik/statuses/479671271832444928)
+
 
 It's worth following a bunch of Ruby people on Twitter. Figure out who makes
 the gems you use, and follow them. Getting to know people is cool, but even if
